@@ -1,0 +1,181 @@
+body {
+  background-color: bisque;
+  color: #000;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+
+.title {
+  background-color: white;
+  padding: 10px;
+  border-radius: 10px;
+  text-align: center;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+.desc {
+  font-size: 15px;
+  font-weight: bold;
+  font-family: "Times New Roman", Times, serif;
+}
+
+.list {
+  background-color: aqua;
+  padding: 20px;
+  border-radius: 10px;
+}
+.list li {
+  font-weight: bold;
+}
+
+/*
+* Scss Değişkenler Kullanımı::after
+
+* Bir proje düşünelim.Bu projede bir kırmızı rengi çokça yerde kullandık.Sonrasında tasarımda bir değişiklik yapıldı ve kırmızı rengi turuncu yapmamız istendi.Değişken kullanımı ile bu değişiklik daha kolay yapılabilir.
+
+
+* Scss içerisindeki Variables(değişkenler) renk,font büyüklüğü,font ailesi,... farklı değerleri daha kolay yönetmemize olanak sağlar.
+
+* Scss Değişkenler Kullanımı:
+
+*/
+$bg-color: orange;
+$container-width: 150px;
+$container-height: 150px;
+$container-border-radius: 20px;
+.container {
+  width: $container-width;
+  height: $container-height;
+  background-color: $bg-color;
+  border-radius: $container-border-radius;
+}
+
+/*
+* Scss İç İçe Yazım
+
+* Css ile bir kapsayıcı içerisindeki yer alan elemanlara erişip bunlara özellikler aktarırken yaptığımız yazım çok uzun ve yorucu oluyor. Bu noktada Scss bize daha kolay bir yazım sunar.
+
+.wrapper {
+  background-color: aqua;
+  padding: 10px;
+}
+.wrapper ul {
+  background-color: gray;
+}
+.wrapper ul li {
+  list-style: none;
+}
+.wrapper ul li a {
+  text-decoration: none;
+  color: bisque;
+}
+.wrapper ul li a:hover {
+  background-color: darkblue;
+}
+
+*/
+.wrapper {
+  background-color: aqua;
+  padding: 10px;
+  ul {
+    background-color: gray;
+
+    li {
+      list-style: none;
+      a {
+        text-decoration: none;
+        color: bisque;
+        &:hover {
+          background-color: darkblue;
+        }
+      }
+    }
+  }
+}
+// Yukarıdaki örnekte görüldüğü üzere Scss iç içe yazım noktasında bize kolaylık sağlar.
+
+// * Scss Miras Yapısı
+
+.flex-kullanım {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.kapsayıcı {
+  background-color: brown;
+  padding: 10px;
+  @extend .flex-kullanım;
+  gap: 5px;
+  li {
+    background-color: bisque;
+    list-style: none;
+  }
+}
+
+.kutu {
+  margin-top: 20px;
+  background-color: blueviolet;
+  padding: 10px;
+
+  @extend .flex-kullanım;
+  flex-wrap: wrap;
+}
+
+.kut {
+  background-color: cadetblue;
+  margin-top: 5px;
+}
+/*
+* Scss in sunduğu miras yapısı ile ortak kodları tekrar tekrar yazmayız.Bunun  yerine ortak kodları bir class altında toplar ve ihtiyaç duyulan noktada bu class ı @extend ile çağırırız.Yani bir üst kısımdan miras alırız.
+
+*/
+
+// Scss  Harici Dosyalar İle Daha Modüler Kullanım
+/*
+* Scss ile harici dosyalar oluşturup kodu daha modüler yönetebiliriz.
+
+* Ana Scss dosyası haricindeki diğer Scss dosyaları _ ile adlandırılır.Bunun sebebi _ ile oluşturulan dosyaların ana Scss de kullanılacağını belirtmektir.
+
+* Harici dosyadaki Scss özelliklerini kullanmak için @import edilir. @import dedikten sonra './kullanılacak dosyanın yolu'
+
+*/
+@import "./variables";
+.paragraph {
+  background-color: $background-color;
+  color: $paragraph-color;
+  font-family: $font-family;
+  padding: $padding;
+  border-radius: $container-border-radius;
+  &:hover {
+    text-shadow: $text-shadow-x $text-shadow-y 20px $text-shadow-color;
+  }
+}
+
+// * Scss Media Etiketleri
+// Scss media etiketleri sayesinde daha kolay responsive tasarım elde edilir.
+@mixin laptop {
+  @media (max-width: 1000px) {
+    @content;
+  }
+}
+@mixin tablet {
+  @media (min-width: 800px) {
+    @content;
+  }
+}
+@mixin telefon {
+  @media (max-width: 500px) {
+    @content;
+  }
+}
+
+.footer {
+  background-color: $bg-color;
+  width: $container-width;
+  height: $container-height;
+  @include telefon() {
+    background-color: fuchsia;
+  }
+  @include tablet() {
+    background-color: royalblue;
+  }
+}

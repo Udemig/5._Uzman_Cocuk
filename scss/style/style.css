@@ -1,0 +1,158 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Edu+AU+VIC+WA+NT+Hand:wght@400..700&display=swap");
+body {
+  background-color: bisque;
+  color: #000;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+
+.title {
+  background-color: white;
+  padding: 10px;
+  border-radius: 10px;
+  text-align: center;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.desc {
+  font-size: 15px;
+  font-weight: bold;
+  font-family: "Times New Roman", Times, serif;
+}
+
+.list {
+  background-color: aqua;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.list li {
+  font-weight: bold;
+}
+
+/*
+* Scss Değişkenler Kullanımı::after
+
+* Bir proje düşünelim.Bu projede bir kırmızı rengi çokça yerde kullandık.Sonrasında tasarımda bir değişiklik yapıldı ve kırmızı rengi turuncu yapmamız istendi.Değişken kullanımı ile bu değişiklik daha kolay yapılabilir.
+
+
+* Scss içerisindeki Variables(değişkenler) renk,font büyüklüğü,font ailesi,... farklı değerleri daha kolay yönetmemize olanak sağlar.
+
+* Scss Değişkenler Kullanımı:
+
+*/
+.container {
+  width: 150px;
+  height: 150px;
+  background-color: orange;
+  border-radius: 20px;
+}
+
+/*
+* Scss İç İçe Yazım
+
+* Css ile bir kapsayıcı içerisindeki yer alan elemanlara erişip bunlara özellikler aktarırken yaptığımız yazım çok uzun ve yorucu oluyor. Bu noktada Scss bize daha kolay bir yazım sunar.
+
+.wrapper {
+  background-color: aqua;
+  padding: 10px;
+}
+.wrapper ul {
+  background-color: gray;
+}
+.wrapper ul li {
+  list-style: none;
+}
+.wrapper ul li a {
+  text-decoration: none;
+  color: bisque;
+}
+.wrapper ul li a:hover {
+  background-color: darkblue;
+}
+
+*/
+.wrapper {
+  background-color: aqua;
+  padding: 10px;
+}
+.wrapper ul {
+  background-color: gray;
+}
+.wrapper ul li {
+  list-style: none;
+}
+.wrapper ul li a {
+  text-decoration: none;
+  color: bisque;
+}
+.wrapper ul li a:hover {
+  background-color: darkblue;
+}
+
+.flex-kullanım, .kutu, .kapsayıcı {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.kapsayıcı {
+  background-color: brown;
+  padding: 10px;
+  gap: 5px;
+}
+.kapsayıcı li {
+  background-color: bisque;
+  list-style: none;
+}
+
+.kutu {
+  margin-top: 20px;
+  background-color: blueviolet;
+  padding: 10px;
+  flex-wrap: wrap;
+}
+
+.kut {
+  background-color: cadetblue;
+  margin-top: 5px;
+}
+
+/*
+* Scss in sunduğu miras yapısı ile ortak kodları tekrar tekrar yazmayız.Bunun  yerine ortak kodları bir class altında toplar ve ihtiyaç duyulan noktada bu class ı @extend ile çağırırız.Yani bir üst kısımdan miras alırız.
+
+*/
+/*
+* Scss ile harici dosyalar oluşturup kodu daha modüler yönetebiliriz.
+
+* Ana Scss dosyası haricindeki diğer Scss dosyaları _ ile adlandırılır.Bunun sebebi _ ile oluşturulan dosyaların ana Scss de kullanılacağını belirtmektir.
+
+* Harici dosyadaki Scss özelliklerini kullanmak için @import edilir. @import dedikten sonra './kullanılacak dosyanın yolu'
+
+*/
+.paragraph {
+  background-color: #2e236c;
+  color: #c8acd6;
+  font-family: "Edu AU VIC WA NT Hand", cursive;
+  padding: 10px;
+  border-radius: 20px;
+}
+.paragraph:hover {
+  text-shadow: 5px 5px 20px #f3feb8;
+}
+
+.footer {
+  background-color: orange;
+  width: 150px;
+  height: 150px;
+}
+@media (max-width: 500px) {
+  .footer {
+    background-color: fuchsia;
+  }
+}
+@media (min-width: 800px) {
+  .footer {
+    background-color: royalblue;
+  }
+}/*# sourceMappingURL=style.css.map */
