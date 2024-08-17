@@ -1,0 +1,77 @@
+@import "./global";
+@import "./variables";
+
+header {
+  background: transparent;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  padding: 27px 17px;
+  z-index: 100;
+  /* z-index ile headerın diğer elemanların üzerinde yer alması sağlandı.*/
+  @extend .flex;
+  justify-content: space-between;
+  .logo {
+    font-size: 33px;
+    color: $text-color;
+    font-weight: 700;
+    span {
+      color: $main-color;
+    }
+  }
+  .navbar {
+    @extend .flex;
+    gap: 10px;
+    a {
+      color: $text-color;
+      font-size: $p-font;
+      font-weight: 500;
+      margin: 15px 22px;
+      @extend .transition;
+      text-transform: uppercase;
+      &:hover {
+        color: $main-color;
+      }
+    }
+  }
+  .header-right {
+    @extend .flex;
+    a {
+      font-size: 20px;
+      color: $text-color;
+      margin-right: 18px;
+      margin-left: 5px;
+      @extend .transition;
+      &:hover {
+        color: $main-color;
+        transform: translateY(-3px);
+      }
+    }
+    a:nth-child(1) {
+      font-size: $p-font;
+      margin-right: 20px;
+    }
+  }
+}
+
+// Responsive Tasarım
+
+@media (max-width: 1200px) {
+  .navbar li {
+    display: none;
+  }
+}
+
+@media (max-width: 1000px) {
+  header {
+    justify-content: center;
+  }
+  .header-right a {
+    display: none;
+  }
+}
+@media (max-width: 480px) {
+  .logo {
+    font-size: 20px;
+  }
+}

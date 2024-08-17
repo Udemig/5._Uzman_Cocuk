@@ -1,0 +1,66 @@
+@import "./variables";
+.home {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  background-image: linear-gradient(
+      to left,
+      rgba(0, 0, 0, 0.6),
+      rgba(0, 0, 0, 0.6)
+    ),
+    url("../images/group.jpeg");
+  background-size: cover;
+  background-position: bottom center;
+  .home-text {
+    margin-top: 130px;
+    h5 {
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+      color: $main-color;
+      letter-spacing: 6px;
+    }
+    h1 {
+      font-size: $h1-font;
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 20px;
+    }
+    p {
+      font-size: $p-font;
+      font-weight: 500;
+      line-height: 30px;
+      margin-bottom: 35px;
+      color: $gray;
+    }
+  }
+}
+
+// Responsive Tasarım
+
+@media (max-width: 1200px) {
+  .home {
+    position: relative;
+    .home-text {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      h5 {
+        font-size: 2rem;
+      }
+      h1 {
+        font-size: 2.5rem;
+        line-height: 50px;
+      }
+      p {
+        font-size: 1rem;
+      }
+      .btn {
+        padding: 5px 10px;
+        font-size: 1rem;
+      }
+    }
+  }
+}
