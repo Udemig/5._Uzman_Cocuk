@@ -1,0 +1,46 @@
+@import "./variables";
+#about-us {
+  display: grid;
+  //   grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(2, 1fr);
+  align-items: center;
+  gap: 9rem;
+  .about-us-img img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+  }
+  .about-us-text {
+    h5 {
+      font-size: 22px;
+      font-weight: bold;
+      color: $main-color;
+      text-transform: uppercase;
+      letter-spacing: 6px;
+      margin-bottom: 20px;
+    }
+    h2 {
+      font-size: $h2-font;
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 25px;
+    }
+    p {
+      font-size: $p-font;
+      font-weight: 500;
+      line-height: 30px;
+      color: $gray;
+      margin-bottom: 35px;
+    }
+  }
+}
+
+// Responsive Tasarım
+
+@media (max-width: 1000px) {
+  #about-us {
+    display: flex;
+    flex-direction: column;
+    // Display flex yapısı elemanları yan yana getirir.Bu yapı aktif edildiğinde  flex-direction özelliği kullanılır hale gelir. flex-direction özelliği flex yapısı aktif olan elemanların nasıl sıralanacağını belirler.Bu özelliğin default değeri 'row' dur.
+  }
+}
